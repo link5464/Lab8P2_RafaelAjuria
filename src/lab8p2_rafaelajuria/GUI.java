@@ -5,6 +5,15 @@
  */
 package lab8p2_rafaelajuria;
 
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author rajur
@@ -16,7 +25,30 @@ public class GUI extends javax.swing.JFrame {
      */
     public GUI() {
         initComponents();
-    }
+        //<editor-fold defaultstate="collapsed" desc=" Codigo Adicional - Corre al iniciar el programa ">
+        //Llena la tabla con todos los datos
+        DatabaseCon DB = new DatabaseCon("./Volkswagen.accdb");
+        DB.Connect();
+        try
+        {
+         DB.Query.execute("SELECT Vehiculos.VIN, Vehiculos.Marca, Vehiculos.Categoria, Vehiculos.Carroceria, Vehiculos.[Numero de Puertas], Vehiculos.Color, Vehiculos.[Tipo de Motor], Vehiculos.Precio, Vehiculos.[Tipo de Hibridacion], Vehiculos.[Cantidad Maxima de Pasajeros], Vehiculos.[Tiempo de ensamblaje] FROM Vehiculos");
+         ResultSet Result = DB.Query.getResultSet();           
+         while (Result.next()) 
+         {
+         System.out.println( Result.getString(1)+"--->"+ Result.getString(2)   );
+         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+         model.addRow((Vector) Result);
+         } 
+        }
+        catch (SQLException ex) 
+                {
+                ex.printStackTrace();
+                }
+
+        
+        
+        //</editor-fold>
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,17 +59,228 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup_Filtro = new javax.swing.ButtonGroup();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel_Titulo = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel_FiltroSeleccionadoTXT = new javax.swing.JLabel();
+        jLabel_FiltroSeleccionado = new javax.swing.JLabel();
+        jButton_AplicarFiltro = new javax.swing.JButton();
+        jMenuBar_MenuPrincipal = new javax.swing.JMenuBar();
+        jMenu_MenuFiltros = new javax.swing.JMenu();
+        jMenu_FiltroMarcas = new javax.swing.JMenu();
+        jRadioButtonMenuItem_Audi = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem_Bentley = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem_Bugatti = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem_Lamborghini = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem_Porsche = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem_Seat = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem_Skoda = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem_Volkswagen = new javax.swing.JRadioButtonMenuItem();
+        jMenu_Categoria = new javax.swing.JMenu();
+        jRadioButtonMenuItem_Generalista = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem_Premium = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem_Deportivo = new javax.swing.JRadioButtonMenuItem();
+        jMenu_Carroceria = new javax.swing.JMenu();
+        jRadioButtonMenuItem_Sedan = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem_Familiar = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem_HatchBack = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem_FastBack = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem_SUV = new javax.swing.JRadioButtonMenuItem();
+        jMenu_Color = new javax.swing.JMenu();
+        jMenu_TipoDeMotor = new javax.swing.JMenu();
+        jMenu_BusquedaManual = new javax.swing.JMenu();
+        jMenuItem_BusquedaVIN = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(java.awt.SystemColor.activeCaption);
+
+        jLabel_Titulo.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        jLabel_Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_Titulo.setText("Base de datos de Ensamblaje");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel_Titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel_Titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "VIN", "Marca", "Categoria", "Color", "Precio"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jLabel_FiltroSeleccionadoTXT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_FiltroSeleccionadoTXT.setText("Filtro Seleccionado:");
+
+        jLabel_FiltroSeleccionado.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jLabel_FiltroSeleccionado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_FiltroSeleccionado.setText("Ninguno");
+
+        jButton_AplicarFiltro.setText("Aplicar");
+
+        jMenu_MenuFiltros.setText("Filtros");
+
+        jMenu_FiltroMarcas.setText("Marca");
+
+        buttonGroup_Filtro.add(jRadioButtonMenuItem_Audi);
+        jRadioButtonMenuItem_Audi.setText("Audi");
+        jMenu_FiltroMarcas.add(jRadioButtonMenuItem_Audi);
+
+        buttonGroup_Filtro.add(jRadioButtonMenuItem_Bentley);
+        jRadioButtonMenuItem_Bentley.setText("Bentley");
+        jMenu_FiltroMarcas.add(jRadioButtonMenuItem_Bentley);
+
+        buttonGroup_Filtro.add(jRadioButtonMenuItem_Bugatti);
+        jRadioButtonMenuItem_Bugatti.setText("Bugatti");
+        jMenu_FiltroMarcas.add(jRadioButtonMenuItem_Bugatti);
+
+        buttonGroup_Filtro.add(jRadioButtonMenuItem_Lamborghini);
+        jRadioButtonMenuItem_Lamborghini.setText("Lamborghini");
+        jMenu_FiltroMarcas.add(jRadioButtonMenuItem_Lamborghini);
+
+        buttonGroup_Filtro.add(jRadioButtonMenuItem_Porsche);
+        jRadioButtonMenuItem_Porsche.setText("Porsche");
+        jMenu_FiltroMarcas.add(jRadioButtonMenuItem_Porsche);
+
+        buttonGroup_Filtro.add(jRadioButtonMenuItem_Seat);
+        jRadioButtonMenuItem_Seat.setText("SEAT");
+        jMenu_FiltroMarcas.add(jRadioButtonMenuItem_Seat);
+
+        buttonGroup_Filtro.add(jRadioButtonMenuItem_Skoda);
+        jRadioButtonMenuItem_Skoda.setText("Skoda");
+        jMenu_FiltroMarcas.add(jRadioButtonMenuItem_Skoda);
+
+        buttonGroup_Filtro.add(jRadioButtonMenuItem_Volkswagen);
+        jRadioButtonMenuItem_Volkswagen.setText("Volkswagen");
+        jMenu_FiltroMarcas.add(jRadioButtonMenuItem_Volkswagen);
+
+        jMenu_MenuFiltros.add(jMenu_FiltroMarcas);
+
+        jMenu_Categoria.setText("Categoria");
+
+        buttonGroup_Filtro.add(jRadioButtonMenuItem_Generalista);
+        jRadioButtonMenuItem_Generalista.setText("Generalista");
+        jMenu_Categoria.add(jRadioButtonMenuItem_Generalista);
+
+        buttonGroup_Filtro.add(jRadioButtonMenuItem_Premium);
+        jRadioButtonMenuItem_Premium.setText("Premium");
+        jMenu_Categoria.add(jRadioButtonMenuItem_Premium);
+
+        buttonGroup_Filtro.add(jRadioButtonMenuItem_Deportivo);
+        jRadioButtonMenuItem_Deportivo.setText("Deportivos");
+        jMenu_Categoria.add(jRadioButtonMenuItem_Deportivo);
+
+        jMenu_MenuFiltros.add(jMenu_Categoria);
+
+        jMenu_Carroceria.setText("Carroceria");
+
+        buttonGroup_Filtro.add(jRadioButtonMenuItem_Sedan);
+        jRadioButtonMenuItem_Sedan.setText("Sedan");
+        jMenu_Carroceria.add(jRadioButtonMenuItem_Sedan);
+
+        buttonGroup_Filtro.add(jRadioButtonMenuItem_Familiar);
+        jRadioButtonMenuItem_Familiar.setText("Familiar");
+        jMenu_Carroceria.add(jRadioButtonMenuItem_Familiar);
+
+        buttonGroup_Filtro.add(jRadioButtonMenuItem_HatchBack);
+        jRadioButtonMenuItem_HatchBack.setText("HatchBack");
+        jMenu_Carroceria.add(jRadioButtonMenuItem_HatchBack);
+
+        buttonGroup_Filtro.add(jRadioButtonMenuItem_FastBack);
+        jRadioButtonMenuItem_FastBack.setText("FastBack");
+        jMenu_Carroceria.add(jRadioButtonMenuItem_FastBack);
+
+        buttonGroup_Filtro.add(jRadioButtonMenuItem_SUV);
+        jRadioButtonMenuItem_SUV.setText("SUV");
+        jMenu_Carroceria.add(jRadioButtonMenuItem_SUV);
+
+        jMenu_MenuFiltros.add(jMenu_Carroceria);
+
+        jMenu_Color.setText("Color");
+        jMenu_MenuFiltros.add(jMenu_Color);
+
+        jMenu_TipoDeMotor.setText("Tipo de Motor");
+        jMenu_MenuFiltros.add(jMenu_TipoDeMotor);
+
+        jMenuBar_MenuPrincipal.add(jMenu_MenuFiltros);
+
+        jMenu_BusquedaManual.setText("Busqueda");
+
+        jMenuItem_BusquedaVIN.setText("VIN");
+        jMenu_BusquedaManual.add(jMenuItem_BusquedaVIN);
+
+        jMenuBar_MenuPrincipal.add(jMenu_BusquedaManual);
+
+        setJMenuBar(jMenuBar_MenuPrincipal);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 691, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel_FiltroSeleccionadoTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                            .addComponent(jLabel_FiltroSeleccionado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton_AplicarFiltro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel_FiltroSeleccionadoTXT)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel_FiltroSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton_AplicarFiltro)
+                .addContainerGap())
         );
 
         pack();
@@ -77,7 +320,41 @@ public class GUI extends javax.swing.JFrame {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup_Filtro;
+    private javax.swing.JButton jButton_AplicarFiltro;
+    private javax.swing.JLabel jLabel_FiltroSeleccionado;
+    private javax.swing.JLabel jLabel_FiltroSeleccionadoTXT;
+    private javax.swing.JLabel jLabel_Titulo;
+    private javax.swing.JMenuBar jMenuBar_MenuPrincipal;
+    private javax.swing.JMenuItem jMenuItem_BusquedaVIN;
+    private javax.swing.JMenu jMenu_BusquedaManual;
+    private javax.swing.JMenu jMenu_Carroceria;
+    private javax.swing.JMenu jMenu_Categoria;
+    private javax.swing.JMenu jMenu_Color;
+    private javax.swing.JMenu jMenu_FiltroMarcas;
+    private javax.swing.JMenu jMenu_MenuFiltros;
+    private javax.swing.JMenu jMenu_TipoDeMotor;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Audi;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Bentley;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Bugatti;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Deportivo;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Familiar;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_FastBack;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Generalista;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_HatchBack;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Lamborghini;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Porsche;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Premium;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_SUV;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Seat;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Sedan;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Skoda;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Volkswagen;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
