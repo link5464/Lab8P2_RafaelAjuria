@@ -8,6 +8,7 @@ package lab8p2_rafaelajuria;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -29,9 +30,12 @@ public class GUI extends javax.swing.JFrame {
         {
          DB.Query.execute("SELECT Vehiculos.VIN, Vehiculos.Marca, Vehiculos.Categoria, Vehiculos.Carroceria, Vehiculos.[Numero de Puertas], Vehiculos.Color, Vehiculos.[Tipo de Motor], Vehiculos.Precio, Vehiculos.[Tipo de Hibridacion], Vehiculos.[Cantidad Maxima de Pasajeros], Vehiculos.[Tiempo de ensamblaje] FROM Vehiculos");
          ResultSet Result = DB.Query.getResultSet();
+         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+         model.setRowCount(0);
          int i =0;
          while (Result.next()) 
          {
+         model.addRow(new Object[]{null,null,null,null,null});
          jTable1.setValueAt(Result.getString(1),i,0);
          jTable1.setValueAt(Result.getString(2),i,1);
          jTable1.setValueAt(Result.getString(3),i,2);
@@ -44,6 +48,7 @@ public class GUI extends javax.swing.JFrame {
                 {
                 ex.printStackTrace();
                 }
+        DB.Disconnect();
         //</editor-fold>
         }
 
@@ -61,6 +66,41 @@ public class GUI extends javax.swing.JFrame {
         jMenuItem_AgregarVehiculo = new javax.swing.JMenuItem();
         jMenuItem_ModificarVehiculo = new javax.swing.JMenuItem();
         jMenuItem_EliminarVehiculo = new javax.swing.JMenuItem();
+        jDialog1 = new javax.swing.JDialog();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel_Atributos = new javax.swing.JLabel();
+        jLabel_VINTXT = new javax.swing.JLabel();
+        jTextField_VIN = new javax.swing.JTextField();
+        jLabel_MarcaTXT = new javax.swing.JLabel();
+        jRadioButton_AtrSEAT = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton_AtrAudi = new javax.swing.JRadioButton();
+        jRadioButton_AtrVolkswagen = new javax.swing.JRadioButton();
+        jRadioButton5 = new javax.swing.JRadioButton();
+        jRadioButton6 = new javax.swing.JRadioButton();
+        jRadioButton_ATRBugatti = new javax.swing.JRadioButton();
+        jRadioButton9 = new javax.swing.JRadioButton();
+        jLabel3 = new javax.swing.JLabel();
+        jRadioButton8 = new javax.swing.JRadioButton();
+        jRadioButton10 = new javax.swing.JRadioButton();
+        jRadioButton11 = new javax.swing.JRadioButton();
+        jRadioButton15 = new javax.swing.JRadioButton();
+        jRadioButton16 = new javax.swing.JRadioButton();
+        jRadioButton17 = new javax.swing.JRadioButton();
+        jRadioButton18 = new javax.swing.JRadioButton();
+        jRadioButton19 = new javax.swing.JRadioButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        jLabel6 = new javax.swing.JLabel();
+        jRadioButton12 = new javax.swing.JRadioButton();
+        jRadioButton13 = new javax.swing.JRadioButton();
+        jLabel7 = new javax.swing.JLabel();
+        jRadioButton14 = new javax.swing.JRadioButton();
+        jRadioButton20 = new javax.swing.JRadioButton();
+        jSpinner2 = new javax.swing.JSpinner();
+        jLabel8 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel_Titulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -68,6 +108,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel_FiltroSeleccionadoTXT = new javax.swing.JLabel();
         jLabel_FiltroSeleccionado = new javax.swing.JLabel();
         jButton_AplicarFiltro = new javax.swing.JButton();
+        jButton_EliminarFiltro = new javax.swing.JButton();
         jMenuBar_MenuPrincipal = new javax.swing.JMenuBar();
         jMenu_MenuFiltros = new javax.swing.JMenu();
         jMenu_FiltroMarcas = new javax.swing.JMenu();
@@ -107,6 +148,247 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         jPopupMenu_ContextMenu.add(jMenuItem_EliminarVehiculo);
+
+        jPanel2.setBackground(java.awt.SystemColor.activeCaption);
+
+        jLabel_Atributos.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabel_Atributos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_Atributos.setText("Atributos del Vehiculo");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel_Atributos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel_Atributos, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jLabel_VINTXT.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel_VINTXT.setText("VIN:");
+
+        jLabel_MarcaTXT.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel_MarcaTXT.setText("Marca:");
+
+        jRadioButton_AtrSEAT.setText("SEAT");
+
+        jRadioButton2.setText("Skoda");
+
+        jRadioButton_AtrAudi.setText("Audi");
+
+        jRadioButton_AtrVolkswagen.setText("Volkswagen");
+
+        jRadioButton5.setText("Porsche");
+
+        jRadioButton6.setText("Lamborghini");
+
+        jRadioButton_ATRBugatti.setText("Bugatti");
+
+        jRadioButton9.setText("Bentley");
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel3.setText("Categoria:");
+
+        jRadioButton8.setText("Generalista");
+
+        jRadioButton10.setText("Premium");
+
+        jRadioButton11.setText("Deportivo");
+
+        jRadioButton15.setText("HatchBack");
+
+        jRadioButton16.setText("FastBack");
+
+        jRadioButton17.setText("SUV");
+
+        jRadioButton18.setText("Familiar");
+
+        jRadioButton19.setText("Sedan");
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel4.setText("Carroceria");
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel5.setText("Numero de Puertas:");
+
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(2, 2, 5, 1));
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel6.setText("Color:");
+
+        jRadioButton12.setText("Blanco");
+
+        jRadioButton13.setText("Negro");
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel7.setText("Tipo de Motor:");
+
+        jRadioButton14.setText("Combustion");
+
+        jRadioButton20.setText("Electrico");
+
+        jSpinner2.setModel(new javax.swing.SpinnerNumberModel(50000.0d, 20000.0d, 500000.0d, 10000.0d));
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel8.setText("Precio:");
+
+        jButton1.setText("Guardar");
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addComponent(jLabel_VINTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField_VIN, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addComponent(jLabel_MarcaTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton_AtrSEAT)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jRadioButton_ATRBugatti))
+                    .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jDialog1Layout.createSequentialGroup()
+                            .addGap(75, 75, 75)
+                            .addComponent(jRadioButton_AtrAudi)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jRadioButton_AtrVolkswagen)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jRadioButton9))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
+                            .addComponent(jRadioButton2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jRadioButton5)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jRadioButton6)))
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton11))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton10)
+                            .addComponent(jRadioButton8)))
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton19)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jRadioButton18))
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton20)
+                            .addComponent(jRadioButton14)))
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton15)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDialog1Layout.createSequentialGroup()
+                                .addComponent(jRadioButton16)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadioButton17))
+                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton13)
+                            .addComponent(jRadioButton12)))
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSpinner2, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextField_VIN)
+                    .addComponent(jLabel_VINTXT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_MarcaTXT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jRadioButton_AtrSEAT)
+                    .addComponent(jRadioButton_ATRBugatti))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton_AtrAudi)
+                    .addComponent(jRadioButton_AtrVolkswagen)
+                    .addComponent(jRadioButton9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton5)
+                    .addComponent(jRadioButton6)
+                    .addComponent(jRadioButton2))
+                .addGap(18, 18, 18)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jRadioButton8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton10)
+                    .addComponent(jRadioButton11))
+                .addGap(18, 18, 18)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jRadioButton19)
+                    .addComponent(jRadioButton18))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton15)
+                    .addComponent(jRadioButton16)
+                    .addComponent(jRadioButton17))
+                .addGap(18, 18, 18)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                        .addGap(26, 26, 26))
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addComponent(jRadioButton12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton13)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                        .addGap(26, 26, 26))
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addComponent(jRadioButton14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton20)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addComponent(jButton1)
+                .addContainerGap())
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -175,6 +457,18 @@ public class GUI extends javax.swing.JFrame {
         jLabel_FiltroSeleccionado.setText("Ninguno");
 
         jButton_AplicarFiltro.setText("Aplicar");
+        jButton_AplicarFiltro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_AplicarFiltroMouseClicked(evt);
+            }
+        });
+
+        jButton_EliminarFiltro.setText("Quitar");
+        jButton_EliminarFiltro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_EliminarFiltroMouseClicked(evt);
+            }
+        });
 
         jMenu_MenuFiltros.setText("Filtros");
 
@@ -265,6 +559,11 @@ public class GUI extends javax.swing.JFrame {
         jMenu_BusquedaManual.setText("Busqueda");
 
         jMenuItem_BusquedaVIN.setText("VIN");
+        jMenuItem_BusquedaVIN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_BusquedaVINActionPerformed(evt);
+            }
+        });
         jMenu_BusquedaManual.add(jMenuItem_BusquedaVIN);
 
         jMenuBar_MenuPrincipal.add(jMenu_BusquedaManual);
@@ -281,10 +580,13 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 691, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel_FiltroSeleccionadoTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                            .addComponent(jLabel_FiltroSeleccionado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton_AplicarFiltro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel_FiltroSeleccionadoTXT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jButton_AplicarFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton_EliminarFiltro, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))
+                            .addComponent(jLabel_FiltroSeleccionado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -299,7 +601,9 @@ public class GUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel_FiltroSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton_AplicarFiltro)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_AplicarFiltro)
+                    .addComponent(jButton_EliminarFiltro))
                 .addContainerGap())
         );
 
@@ -343,6 +647,71 @@ public class GUI extends javax.swing.JFrame {
                }
     }//GEN-LAST:event_jMenuItem_EliminarVehiculoActionPerformed
 
+    private void jMenuItem_BusquedaVINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_BusquedaVINActionPerformed
+        // TODO add your handling code here:
+        String VIN = JOptionPane.showInputDialog("Ingrese el VIN que desea ver");
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        DatabaseCon DB2 = new DatabaseCon("./Volkswagen.accdb");
+        DB2.Connect();
+        try
+        {
+         DB2.Query.execute("SELECT Vehiculos.VIN, Vehiculos.Marca, Vehiculos.Categoria, Vehiculos.Carroceria, Vehiculos.[Numero de Puertas], Vehiculos.Color, Vehiculos.[Tipo de Motor], Vehiculos.Precio, Vehiculos.[Tipo de Hibridacion], Vehiculos.[Cantidad Maxima de Pasajeros], Vehiculos.[Tiempo de ensamblaje] FROM Vehiculos WHERE VIN=\""+VIN+"\"");
+         ResultSet Result = DB2.Query.getResultSet();
+         
+         int i =0;
+         while (Result.next()) 
+         {
+         model.addRow(new Object[]{null,null,null,null,null});
+         jTable1.setValueAt(Result.getString(1),i,0);
+         jTable1.setValueAt(Result.getString(2),i,1);
+         jTable1.setValueAt(Result.getString(3),i,2);
+         jTable1.setValueAt(Result.getString(6),i,3);
+         jTable1.setValueAt(Result.getString(8),i,4);
+         i++;
+         } 
+         
+        }
+        catch (SQLException ex) 
+                {
+                ex.printStackTrace();
+                }
+        DB2.Disconnect();
+    }//GEN-LAST:event_jMenuItem_BusquedaVINActionPerformed
+
+    private void jButton_AplicarFiltroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_AplicarFiltroMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_AplicarFiltroMouseClicked
+
+    private void jButton_EliminarFiltroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_EliminarFiltroMouseClicked
+        // TODO add your handling code here:
+        DatabaseCon DB = new DatabaseCon("./Volkswagen.accdb");
+        DB.Connect();
+        try
+        {
+         DB.Query.execute("SELECT Vehiculos.VIN, Vehiculos.Marca, Vehiculos.Categoria, Vehiculos.Carroceria, Vehiculos.[Numero de Puertas], Vehiculos.Color, Vehiculos.[Tipo de Motor], Vehiculos.Precio, Vehiculos.[Tipo de Hibridacion], Vehiculos.[Cantidad Maxima de Pasajeros], Vehiculos.[Tiempo de ensamblaje] FROM Vehiculos");
+         ResultSet Result = DB.Query.getResultSet();
+         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+         model.setRowCount(0);
+         int i =0;
+         while (Result.next()) 
+         {
+         model.addRow(new Object[]{null,null,null,null,null});
+         jTable1.setValueAt(Result.getString(1),i,0);
+         jTable1.setValueAt(Result.getString(2),i,1);
+         jTable1.setValueAt(Result.getString(3),i,2);
+         jTable1.setValueAt(Result.getString(6),i,3);
+         jTable1.setValueAt(Result.getString(8),i,4);
+         i++;
+         } 
+        }
+        catch (SQLException ex) 
+                {
+                ex.printStackTrace();
+                }
+        DB.Disconnect();
+    }//GEN-LAST:event_jButton_EliminarFiltroMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -381,10 +750,22 @@ public class GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup_Filtro;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton_AplicarFiltro;
+    private javax.swing.JButton jButton_EliminarFiltro;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel_Atributos;
     private javax.swing.JLabel jLabel_FiltroSeleccionado;
     private javax.swing.JLabel jLabel_FiltroSeleccionadoTXT;
+    private javax.swing.JLabel jLabel_MarcaTXT;
     private javax.swing.JLabel jLabel_Titulo;
+    private javax.swing.JLabel jLabel_VINTXT;
     private javax.swing.JMenuBar jMenuBar_MenuPrincipal;
     private javax.swing.JMenuItem jMenuItem_AgregarVehiculo;
     private javax.swing.JMenuItem jMenuItem_BusquedaVIN;
@@ -398,7 +779,24 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu_MenuFiltros;
     private javax.swing.JMenu jMenu_TipoDeMotor;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPopupMenu jPopupMenu_ContextMenu;
+    private javax.swing.JRadioButton jRadioButton10;
+    private javax.swing.JRadioButton jRadioButton11;
+    private javax.swing.JRadioButton jRadioButton12;
+    private javax.swing.JRadioButton jRadioButton13;
+    private javax.swing.JRadioButton jRadioButton14;
+    private javax.swing.JRadioButton jRadioButton15;
+    private javax.swing.JRadioButton jRadioButton16;
+    private javax.swing.JRadioButton jRadioButton17;
+    private javax.swing.JRadioButton jRadioButton18;
+    private javax.swing.JRadioButton jRadioButton19;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton20;
+    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JRadioButton jRadioButton6;
+    private javax.swing.JRadioButton jRadioButton8;
+    private javax.swing.JRadioButton jRadioButton9;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Audi;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Bentley;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Bugatti;
@@ -415,7 +813,14 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Sedan;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Skoda;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Volkswagen;
+    private javax.swing.JRadioButton jRadioButton_ATRBugatti;
+    private javax.swing.JRadioButton jRadioButton_AtrAudi;
+    private javax.swing.JRadioButton jRadioButton_AtrSEAT;
+    private javax.swing.JRadioButton jRadioButton_AtrVolkswagen;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSpinner jSpinner2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField_VIN;
     // End of variables declaration//GEN-END:variables
 }
