@@ -141,7 +141,11 @@ public class GUI extends javax.swing.JFrame {
         jRadioButtonMenuItem_FastBack = new javax.swing.JRadioButtonMenuItem();
         jRadioButtonMenuItem_SUV = new javax.swing.JRadioButtonMenuItem();
         jMenu_Color = new javax.swing.JMenu();
+        jRadioButtonMenuItem_Blanco = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem_Negro = new javax.swing.JRadioButtonMenuItem();
         jMenu_TipoDeMotor = new javax.swing.JMenu();
+        jRadioButtonMenuItem_Combustion = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem_Eletrico = new javax.swing.JRadioButtonMenuItem();
         jMenu_BusquedaManual = new javax.swing.JMenu();
         jMenuItem_BusquedaVIN = new javax.swing.JMenuItem();
 
@@ -594,9 +598,27 @@ public class GUI extends javax.swing.JFrame {
         jMenu_MenuFiltros.add(jMenu_Carroceria);
 
         jMenu_Color.setText("Color");
+
+        buttonGroup_Filtro.add(jRadioButtonMenuItem_Blanco);
+        jRadioButtonMenuItem_Blanco.setText("Blanco");
+        jMenu_Color.add(jRadioButtonMenuItem_Blanco);
+
+        buttonGroup_Filtro.add(jRadioButtonMenuItem_Negro);
+        jRadioButtonMenuItem_Negro.setText("Negro");
+        jMenu_Color.add(jRadioButtonMenuItem_Negro);
+
         jMenu_MenuFiltros.add(jMenu_Color);
 
         jMenu_TipoDeMotor.setText("Tipo de Motor");
+
+        buttonGroup_Filtro.add(jRadioButtonMenuItem_Combustion);
+        jRadioButtonMenuItem_Combustion.setText("Combustion");
+        jMenu_TipoDeMotor.add(jRadioButtonMenuItem_Combustion);
+
+        buttonGroup_Filtro.add(jRadioButtonMenuItem_Eletrico);
+        jRadioButtonMenuItem_Eletrico.setText("Electrico");
+        jMenu_TipoDeMotor.add(jRadioButtonMenuItem_Eletrico);
+
         jMenu_MenuFiltros.add(jMenu_TipoDeMotor);
 
         jMenuBar_MenuPrincipal.add(jMenu_MenuFiltros);
@@ -720,6 +742,7 @@ public class GUI extends javax.swing.JFrame {
     private void jMenuItem_BusquedaVINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_BusquedaVINActionPerformed
         // TODO add your handling code here:
         String VIN = JOptionPane.showInputDialog("Ingrese el VIN que desea ver");
+        jLabel_FiltroSeleccionado.setText("VIN="+VIN);
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
         DatabaseCon DB2 = new DatabaseCon("./Volkswagen.accdb");
@@ -751,10 +774,96 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButton_AplicarFiltroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_AplicarFiltroMouseClicked
         // TODO add your handling code here:
+        String TipoDeFiltro="Color";
+        String Filtro="Blanco";
+        
+        
+        //Seleccion de Filtros
+        if(jRadioButtonMenuItem_Audi.isSelected())
+        {
+            TipoDeFiltro="Marca"; Filtro="Audi";
+        } 
+        if(jRadioButtonMenuItem_Bentley.isSelected())
+        {
+            TipoDeFiltro="Marca"; Filtro="Bentley";
+        } 
+        if(jRadioButtonMenuItem_Bugatti.isSelected())
+        {
+            TipoDeFiltro="Marca"; Filtro="Bugatti";
+        } 
+        if(jRadioButtonMenuItem_Deportivo.isSelected())
+        {
+            TipoDeFiltro="Categoria"; Filtro="Deportivo";
+        } 
+        if(jRadioButtonMenuItem_Audi.isSelected())
+        {
+            TipoDeFiltro="Marca"; Filtro="Audi";
+        } 
+        if(jRadioButtonMenuItem_Audi.isSelected())
+        {
+            TipoDeFiltro="Marca"; Filtro="Audi";
+        } 
+        if(jRadioButtonMenuItem_Audi.isSelected())
+        {
+            TipoDeFiltro="Marca"; Filtro="Audi";
+        } 
+        if(jRadioButtonMenuItem_Audi.isSelected())
+        {
+            TipoDeFiltro="Marca"; Filtro="Audi";
+        } 
+        if(jRadioButtonMenuItem_Audi.isSelected())
+        {
+            TipoDeFiltro="Marca"; Filtro="Audi";
+        } 
+        if(jRadioButtonMenuItem_Audi.isSelected())
+        {
+            TipoDeFiltro="Marca"; Filtro="Audi";
+        } 
+        if(jRadioButtonMenuItem_Audi.isSelected())
+        {
+            TipoDeFiltro="Marca"; Filtro="Audi";
+        } 
+        if(jRadioButtonMenuItem_Audi.isSelected())
+        {
+            TipoDeFiltro="Marca"; Filtro="Audi";
+        } 
+        if(jRadioButtonMenuItem_Audi.isSelected())
+        {
+            TipoDeFiltro="Marca"; Filtro="Audi";
+        } 
+        jLabel_FiltroSeleccionado.setText(TipoDeFiltro+"="+Filtro);
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        DatabaseCon DB2 = new DatabaseCon("./Volkswagen.accdb");
+        DB2.Connect();
+        try
+        {
+         DB2.Query.execute("SELECT Vehiculos.VIN, Vehiculos.Marca, Vehiculos.Categoria, Vehiculos.Carroceria, Vehiculos.[Numero de Puertas], Vehiculos.Color, Vehiculos.[Tipo de Motor], Vehiculos.Precio, Vehiculos.[Tipo de Hibridacion], Vehiculos.[Cantidad Maxima de Pasajeros], Vehiculos.[Tiempo de ensamblaje] FROM Vehiculos WHERE "+TipoDeFiltro+"=\""+Filtro+"\"");
+         ResultSet Result = DB2.Query.getResultSet();
+         
+         int i =0;
+         while (Result.next()) 
+         {
+         model.addRow(new Object[]{null,null,null,null,null});
+         jTable1.setValueAt(Result.getString(1),i,0);
+         jTable1.setValueAt(Result.getString(2),i,1);
+         jTable1.setValueAt(Result.getString(3),i,2);
+         jTable1.setValueAt(Result.getString(6),i,3);
+         jTable1.setValueAt(Result.getString(8),i,4);
+         i++;
+         } 
+         
+        }
+        catch (SQLException ex) 
+                {
+                ex.printStackTrace();
+                }
+        DB2.Disconnect();
     }//GEN-LAST:event_jButton_AplicarFiltroMouseClicked
 
     private void jButton_EliminarFiltroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_EliminarFiltroMouseClicked
         // TODO add your handling code here:
+        jLabel_FiltroSeleccionado.setText("Ninguno");
         DatabaseCon DB = new DatabaseCon("./Volkswagen.accdb");
         DB.Connect();
         try
@@ -786,7 +895,7 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         jDialog1.pack();
         jDialog1.setVisible(true);
-        jTextField_VIN.enable(false);
+        jTextField_VIN.enable(true);
         AgregandoVehiculo=true;
     }//GEN-LAST:event_jMenuItem_AgregarVehiculoActionPerformed
 
@@ -1011,13 +1120,17 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButtonAtr_Sedan;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Audi;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Bentley;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Blanco;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Bugatti;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Combustion;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Deportivo;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Eletrico;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Familiar;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_FastBack;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Generalista;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_HatchBack;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Lamborghini;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Negro;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Porsche;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Premium;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_SUV;
