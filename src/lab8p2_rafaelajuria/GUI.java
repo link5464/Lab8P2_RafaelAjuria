@@ -148,6 +148,7 @@ public class GUI extends javax.swing.JFrame {
         jRadioButtonMenuItem_Eletrico = new javax.swing.JRadioButtonMenuItem();
         jMenu_BusquedaManual = new javax.swing.JMenu();
         jMenuItem_BusquedaVIN = new javax.swing.JMenuItem();
+        jMenuItem_AddDefault = new javax.swing.JMenuItem();
 
         jMenuItem_AgregarVehiculo.setText("Agregar");
         jMenuItem_AgregarVehiculo.addActionListener(new java.awt.event.ActionListener() {
@@ -633,6 +634,14 @@ public class GUI extends javax.swing.JFrame {
         });
         jMenu_BusquedaManual.add(jMenuItem_BusquedaVIN);
 
+        jMenuItem_AddDefault.setText("Agregar Predeterminado");
+        jMenuItem_AddDefault.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_AddDefaultActionPerformed(evt);
+            }
+        });
+        jMenu_BusquedaManual.add(jMenuItem_AddDefault);
+
         jMenuBar_MenuPrincipal.add(jMenu_BusquedaManual);
 
         setJMenuBar(jMenuBar_MenuPrincipal);
@@ -795,41 +804,69 @@ public class GUI extends javax.swing.JFrame {
         {
             TipoDeFiltro="Categoria"; Filtro="Deportivo";
         } 
-        if(jRadioButtonMenuItem_Audi.isSelected())
+        if(jRadioButtonMenuItem_FastBack.isSelected())
         {
-            TipoDeFiltro="Marca"; Filtro="Audi";
+            TipoDeFiltro="Carroceria"; Filtro="Fastback";
         } 
-        if(jRadioButtonMenuItem_Audi.isSelected())
+        if(jRadioButtonMenuItem_Familiar.isSelected())
         {
-            TipoDeFiltro="Marca"; Filtro="Audi";
+            TipoDeFiltro="Carroceria"; Filtro="Familiar";
         } 
-        if(jRadioButtonMenuItem_Audi.isSelected())
+        if(jRadioButtonMenuItem_Generalista.isSelected())
         {
-            TipoDeFiltro="Marca"; Filtro="Audi";
+            TipoDeFiltro="Categoria"; Filtro="Generalista";
         } 
-        if(jRadioButtonMenuItem_Audi.isSelected())
+        if(jRadioButtonMenuItem_Lamborghini.isSelected())
         {
-            TipoDeFiltro="Marca"; Filtro="Audi";
+            TipoDeFiltro="Marca"; Filtro="Lamborghini";
         } 
-        if(jRadioButtonMenuItem_Audi.isSelected())
+        if(jRadioButtonMenuItem_HatchBack.isSelected())
         {
-            TipoDeFiltro="Marca"; Filtro="Audi";
+            TipoDeFiltro="Carroceria"; Filtro="HatchBack";
         } 
-        if(jRadioButtonMenuItem_Audi.isSelected())
+        if(jRadioButtonMenuItem_Porsche.isSelected())
         {
-            TipoDeFiltro="Marca"; Filtro="Audi";
+            TipoDeFiltro="Marca"; Filtro="Porsche";
         } 
-        if(jRadioButtonMenuItem_Audi.isSelected())
+        if(jRadioButtonMenuItem_Premium.isSelected())
         {
-            TipoDeFiltro="Marca"; Filtro="Audi";
+            TipoDeFiltro="Categoria"; Filtro="Premium";
         } 
-        if(jRadioButtonMenuItem_Audi.isSelected())
+        if(jRadioButtonMenuItem_Seat.isSelected())
         {
-            TipoDeFiltro="Marca"; Filtro="Audi";
+            TipoDeFiltro="Marca"; Filtro="SEAT";
         } 
-        if(jRadioButtonMenuItem_Audi.isSelected())
+        if(jRadioButtonMenuItem_SUV.isSelected())
         {
-            TipoDeFiltro="Marca"; Filtro="Audi";
+            TipoDeFiltro="Carroceria"; Filtro="SUV";
+        } 
+        if(jRadioButtonMenuItem_Sedan.isSelected())
+        {
+            TipoDeFiltro="Carroceria"; Filtro="Sedan";
+        } 
+        if(jRadioButtonMenuItem_Skoda.isSelected())
+        {
+            TipoDeFiltro="Marca"; Filtro="Skoda";
+        } 
+        if(jRadioButtonMenuItem_Volkswagen.isSelected())
+        {
+            TipoDeFiltro="Marca"; Filtro="Volkswagen";
+        } 
+        if(jRadioButtonMenuItem_Blanco.isSelected())
+        {
+            TipoDeFiltro="Color"; Filtro="Blanco";
+        } 
+        if(jRadioButtonMenuItem_Negro.isSelected())
+        {
+            TipoDeFiltro="Color"; Filtro="Negro";
+        } 
+        if(jRadioButtonMenuItem_Combustion.isSelected())
+        {
+            TipoDeFiltro="[Tipo de Motor]"; Filtro="Combustion";
+        } 
+        if(jRadioButtonMenuItem_Eletrico.isSelected())
+        {
+            TipoDeFiltro="[Tipo de Motor]"; Filtro="Electrico";
         } 
         jLabel_FiltroSeleccionado.setText(TipoDeFiltro+"="+Filtro);
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
@@ -1043,6 +1080,23 @@ public class GUI extends javax.swing.JFrame {
         ModificandoVehiculo=true;
     }//GEN-LAST:event_jMenuItem_ModificarVehiculoActionPerformed
 
+    private void jMenuItem_AddDefaultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_AddDefaultActionPerformed
+        // TODO add your handling code here:
+        DatabaseCon DB = new DatabaseCon("./Volkswagen.accdb");
+        DB.Connect();
+        try
+        {
+         DB.Query.execute("INSERT INTO Vehiculos(Vehiculos.VIN, Vehiculos.Marca, Vehiculos.Categoria, Vehiculos.Carroceria, Vehiculos.[Numero de Puertas], Vehiculos.Color, Vehiculos.[Tipo de Motor], Vehiculos.Precio, Vehiculos.[Tipo de Hibridacion], Vehiculos.[Cantidad Maxima de Pasajeros], Vehiculos.[Tiempo de ensamblaje])"
+                 +"VALUES(\""+"65ACCJENDGJS5"+"\", "+"\""+"Audi"+"\", "+"\""+"Premium"+"\", "+"\""+"Sedan"+"\", "+"\""+4+"\", "+"\""+"Negro"+"\", "+"\""+"Combustion"+"\", "+"\""+82000+"\", "+"\""+""+"\", "+"\""+5+"\", "+"\""+500+"\" )");
+         DB.Commit();
+        }
+        catch (SQLException ex) 
+                {
+                ex.printStackTrace();
+                }
+        DB.Disconnect(); 
+    }//GEN-LAST:event_jMenuItem_AddDefaultActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1103,6 +1157,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Titulo;
     private javax.swing.JLabel jLabel_VINTXT;
     private javax.swing.JMenuBar jMenuBar_MenuPrincipal;
+    private javax.swing.JMenuItem jMenuItem_AddDefault;
     private javax.swing.JMenuItem jMenuItem_AgregarVehiculo;
     private javax.swing.JMenuItem jMenuItem_BusquedaVIN;
     private javax.swing.JMenuItem jMenuItem_EliminarVehiculo;
