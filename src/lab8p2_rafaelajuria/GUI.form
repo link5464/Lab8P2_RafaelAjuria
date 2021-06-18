@@ -14,11 +14,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Agregar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_AgregarVehiculoActionPerformed"/>
+          </Events>
         </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_ModificarVehiculo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jMenuItem2"/>
+            <Property name="text" type="java.lang.String" value="Modificar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_ModificarVehiculoActionPerformed"/>
+          </Events>
         </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_EliminarVehiculo">
           <Properties>
@@ -58,71 +64,71 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jRadioButton_AtrVolkswagen" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jRadioButton9" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton_AtrBentley" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton_AtrSkoda" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jRadioButton5" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton_Porsche" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jRadioButton6" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton_Lambo" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jLabel3" min="-2" pref="156" max="-2" attributes="0"/>
-                              <Component id="jRadioButton11" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel_CategoriaTXT" min="-2" pref="156" max="-2" attributes="0"/>
+                              <Component id="jRadioButton_AtrDeportivo" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jRadioButton10" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton8" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton_AtrPremium" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton_AtrGeneralista" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel4" min="-2" pref="156" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jRadioButton19" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioButtonAtr_Sedan" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jRadioButton18" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioButton_AtrFamiliar" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="jLabel7" min="-2" pref="156" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jRadioButton20" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton14" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton_AtrMotorElectrico" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton_AtrMotorCombustion" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jLabel5" min="-2" pref="156" max="-2" attributes="0"/>
-                              <Component id="jRadioButton15" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton_AtrHatchback" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel6" alignment="1" min="-2" pref="156" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="jRadioButton16" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButton_AtrFastBack" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jRadioButton17" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButton_AtrSUV" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jSpinner1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton13" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton12" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jSpinner_NumPuertas" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton_AtrColorNegro" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton_AtrColorBlanco" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel8" min="-2" pref="156" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jSpinner2" pref="163" max="32767" attributes="0"/>
+                          <Component id="jSpinner_Precio" pref="163" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton_GuardarVehiculo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -146,40 +152,40 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jRadioButton_AtrAudi" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jRadioButton_AtrVolkswagen" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton9" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButton_AtrBentley" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jRadioButton5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButton_Porsche" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButton_Lambo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButton_AtrSkoda" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel3" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jRadioButton8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel_CategoriaTXT" alignment="3" max="32767" attributes="0"/>
+                      <Component id="jRadioButton_AtrGeneralista" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jRadioButton10" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton11" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButton_AtrPremium" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButton_AtrDeportivo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel4" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jRadioButton19" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton18" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButtonAtr_Sedan" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButton_AtrFamiliar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jRadioButton15" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton16" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton17" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButton_AtrHatchback" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButton_AtrFastBack" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButton_AtrSUV" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel5" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jSpinner1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jSpinner_NumPuertas" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -188,9 +194,9 @@
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jRadioButton12" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioButton_AtrColorBlanco" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jRadioButton13" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioButton_AtrColorNegro" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -200,18 +206,18 @@
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jRadioButton14" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioButton_AtrMotorCombustion" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jRadioButton20" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioButton_AtrMotorElectrico" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel8" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jSpinner2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jSpinner_Precio" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton_GuardarVehiculo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -273,87 +279,135 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="jRadioButton_AtrSEAT">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup_Marca"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="SEAT"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+        <Component class="javax.swing.JRadioButton" name="jRadioButton_AtrSkoda">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup_Marca"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Skoda"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="jRadioButton_AtrAudi">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup_Marca"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Audi"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="jRadioButton_AtrVolkswagen">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup_Marca"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Volkswagen"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton5">
+        <Component class="javax.swing.JRadioButton" name="jRadioButton_Porsche">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup_Marca"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Porsche"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton6">
+        <Component class="javax.swing.JRadioButton" name="jRadioButton_Lambo">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup_Marca"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Lamborghini"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="jRadioButton_ATRBugatti">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup_Marca"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Bugatti"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton9">
+        <Component class="javax.swing.JRadioButton" name="jRadioButton_AtrBentley">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup_Marca"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Bentley"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
+        <Component class="javax.swing.JLabel" name="jLabel_CategoriaTXT">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="11"/>
             <Property name="text" type="java.lang.String" value="Categoria:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton8">
+        <Component class="javax.swing.JRadioButton" name="jRadioButton_AtrGeneralista">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup_Categoria"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Generalista"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton10">
+        <Component class="javax.swing.JRadioButton" name="jRadioButton_AtrPremium">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup_Categoria"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Premium"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton11">
+        <Component class="javax.swing.JRadioButton" name="jRadioButton_AtrDeportivo">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup_Categoria"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Deportivo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton15">
+        <Component class="javax.swing.JRadioButton" name="jRadioButton_AtrHatchback">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup_Carroceria"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="HatchBack"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton16">
+        <Component class="javax.swing.JRadioButton" name="jRadioButton_AtrFastBack">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup_Carroceria"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="FastBack"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton17">
+        <Component class="javax.swing.JRadioButton" name="jRadioButton_AtrSUV">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup_Carroceria"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="SUV"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton18">
+        <Component class="javax.swing.JRadioButton" name="jRadioButton_AtrFamiliar">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup_Carroceria"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Familiar"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton19">
+        <Component class="javax.swing.JRadioButton" name="jRadioButtonAtr_Sedan">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup_Carroceria"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Sedan"/>
           </Properties>
         </Component>
@@ -369,7 +423,7 @@
             <Property name="text" type="java.lang.String" value="Numero de Puertas:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSpinner" name="jSpinner1">
+        <Component class="javax.swing.JSpinner" name="jSpinner_NumPuertas">
           <Properties>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
               <SpinnerModel initial="2" maximum="5" minimum="2" numberType="java.lang.Integer" stepSize="1" type="number"/>
@@ -382,13 +436,19 @@
             <Property name="text" type="java.lang.String" value="Color:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton12">
+        <Component class="javax.swing.JRadioButton" name="jRadioButton_AtrColorBlanco">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup_Color"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Blanco"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton13">
+        <Component class="javax.swing.JRadioButton" name="jRadioButton_AtrColorNegro">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup_Color"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Negro"/>
           </Properties>
         </Component>
@@ -398,17 +458,23 @@
             <Property name="text" type="java.lang.String" value="Tipo de Motor:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton14">
+        <Component class="javax.swing.JRadioButton" name="jRadioButton_AtrMotorCombustion">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup_Motor"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Combustion"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton20">
+        <Component class="javax.swing.JRadioButton" name="jRadioButton_AtrMotorElectrico">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup_Motor"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Electrico"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSpinner" name="jSpinner2">
+        <Component class="javax.swing.JSpinner" name="jSpinner_Precio">
           <Properties>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
               <SpinnerModel initial="50000.0" maximum="500000.0" minimum="20000.0" numberType="java.lang.Double" stepSize="10000.0" type="number"/>
@@ -421,13 +487,26 @@
             <Property name="text" type="java.lang.String" value="Precio:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="jButton_GuardarVehiculo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Guardar"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton_GuardarVehiculoMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup_Marca">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup_Categoria">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup_Carroceria">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup_Color">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup_Motor">
+    </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar_MenuPrincipal">
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu_MenuFiltros">

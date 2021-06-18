@@ -16,6 +16,8 @@ import javax.swing.table.DefaultTableModel;
  * @author rajur
  */
 public class GUI extends javax.swing.JFrame {
+        Boolean AgregandoVehiculo = false;
+        Boolean ModificandoVehiculo = false;
 
     /**
      * Creates new form GUI
@@ -49,6 +51,9 @@ public class GUI extends javax.swing.JFrame {
                 ex.printStackTrace();
                 }
         DB.Disconnect();
+        
+        //
+        
         //</editor-fold>
         }
 
@@ -73,34 +78,39 @@ public class GUI extends javax.swing.JFrame {
         jTextField_VIN = new javax.swing.JTextField();
         jLabel_MarcaTXT = new javax.swing.JLabel();
         jRadioButton_AtrSEAT = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton_AtrSkoda = new javax.swing.JRadioButton();
         jRadioButton_AtrAudi = new javax.swing.JRadioButton();
         jRadioButton_AtrVolkswagen = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
+        jRadioButton_Porsche = new javax.swing.JRadioButton();
+        jRadioButton_Lambo = new javax.swing.JRadioButton();
         jRadioButton_ATRBugatti = new javax.swing.JRadioButton();
-        jRadioButton9 = new javax.swing.JRadioButton();
-        jLabel3 = new javax.swing.JLabel();
-        jRadioButton8 = new javax.swing.JRadioButton();
-        jRadioButton10 = new javax.swing.JRadioButton();
-        jRadioButton11 = new javax.swing.JRadioButton();
-        jRadioButton15 = new javax.swing.JRadioButton();
-        jRadioButton16 = new javax.swing.JRadioButton();
-        jRadioButton17 = new javax.swing.JRadioButton();
-        jRadioButton18 = new javax.swing.JRadioButton();
-        jRadioButton19 = new javax.swing.JRadioButton();
+        jRadioButton_AtrBentley = new javax.swing.JRadioButton();
+        jLabel_CategoriaTXT = new javax.swing.JLabel();
+        jRadioButton_AtrGeneralista = new javax.swing.JRadioButton();
+        jRadioButton_AtrPremium = new javax.swing.JRadioButton();
+        jRadioButton_AtrDeportivo = new javax.swing.JRadioButton();
+        jRadioButton_AtrHatchback = new javax.swing.JRadioButton();
+        jRadioButton_AtrFastBack = new javax.swing.JRadioButton();
+        jRadioButton_AtrSUV = new javax.swing.JRadioButton();
+        jRadioButton_AtrFamiliar = new javax.swing.JRadioButton();
+        jRadioButtonAtr_Sedan = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        jSpinner_NumPuertas = new javax.swing.JSpinner();
         jLabel6 = new javax.swing.JLabel();
-        jRadioButton12 = new javax.swing.JRadioButton();
-        jRadioButton13 = new javax.swing.JRadioButton();
+        jRadioButton_AtrColorBlanco = new javax.swing.JRadioButton();
+        jRadioButton_AtrColorNegro = new javax.swing.JRadioButton();
         jLabel7 = new javax.swing.JLabel();
-        jRadioButton14 = new javax.swing.JRadioButton();
-        jRadioButton20 = new javax.swing.JRadioButton();
-        jSpinner2 = new javax.swing.JSpinner();
+        jRadioButton_AtrMotorCombustion = new javax.swing.JRadioButton();
+        jRadioButton_AtrMotorElectrico = new javax.swing.JRadioButton();
+        jSpinner_Precio = new javax.swing.JSpinner();
         jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButton_GuardarVehiculo = new javax.swing.JButton();
+        buttonGroup_Marca = new javax.swing.ButtonGroup();
+        buttonGroup_Categoria = new javax.swing.ButtonGroup();
+        buttonGroup_Carroceria = new javax.swing.ButtonGroup();
+        buttonGroup_Color = new javax.swing.ButtonGroup();
+        buttonGroup_Motor = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel_Titulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -136,9 +146,19 @@ public class GUI extends javax.swing.JFrame {
         jMenuItem_BusquedaVIN = new javax.swing.JMenuItem();
 
         jMenuItem_AgregarVehiculo.setText("Agregar");
+        jMenuItem_AgregarVehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_AgregarVehiculoActionPerformed(evt);
+            }
+        });
         jPopupMenu_ContextMenu.add(jMenuItem_AgregarVehiculo);
 
-        jMenuItem_ModificarVehiculo.setText("jMenuItem2");
+        jMenuItem_ModificarVehiculo.setText("Modificar");
+        jMenuItem_ModificarVehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_ModificarVehiculoActionPerformed(evt);
+            }
+        });
         jPopupMenu_ContextMenu.add(jMenuItem_ModificarVehiculo);
 
         jMenuItem_EliminarVehiculo.setText("Eliminar");
@@ -178,40 +198,56 @@ public class GUI extends javax.swing.JFrame {
         jLabel_MarcaTXT.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel_MarcaTXT.setText("Marca:");
 
+        buttonGroup_Marca.add(jRadioButton_AtrSEAT);
         jRadioButton_AtrSEAT.setText("SEAT");
 
-        jRadioButton2.setText("Skoda");
+        buttonGroup_Marca.add(jRadioButton_AtrSkoda);
+        jRadioButton_AtrSkoda.setText("Skoda");
 
+        buttonGroup_Marca.add(jRadioButton_AtrAudi);
         jRadioButton_AtrAudi.setText("Audi");
 
+        buttonGroup_Marca.add(jRadioButton_AtrVolkswagen);
         jRadioButton_AtrVolkswagen.setText("Volkswagen");
 
-        jRadioButton5.setText("Porsche");
+        buttonGroup_Marca.add(jRadioButton_Porsche);
+        jRadioButton_Porsche.setText("Porsche");
 
-        jRadioButton6.setText("Lamborghini");
+        buttonGroup_Marca.add(jRadioButton_Lambo);
+        jRadioButton_Lambo.setText("Lamborghini");
 
+        buttonGroup_Marca.add(jRadioButton_ATRBugatti);
         jRadioButton_ATRBugatti.setText("Bugatti");
 
-        jRadioButton9.setText("Bentley");
+        buttonGroup_Marca.add(jRadioButton_AtrBentley);
+        jRadioButton_AtrBentley.setText("Bentley");
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel3.setText("Categoria:");
+        jLabel_CategoriaTXT.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel_CategoriaTXT.setText("Categoria:");
 
-        jRadioButton8.setText("Generalista");
+        buttonGroup_Categoria.add(jRadioButton_AtrGeneralista);
+        jRadioButton_AtrGeneralista.setText("Generalista");
 
-        jRadioButton10.setText("Premium");
+        buttonGroup_Categoria.add(jRadioButton_AtrPremium);
+        jRadioButton_AtrPremium.setText("Premium");
 
-        jRadioButton11.setText("Deportivo");
+        buttonGroup_Categoria.add(jRadioButton_AtrDeportivo);
+        jRadioButton_AtrDeportivo.setText("Deportivo");
 
-        jRadioButton15.setText("HatchBack");
+        buttonGroup_Carroceria.add(jRadioButton_AtrHatchback);
+        jRadioButton_AtrHatchback.setText("HatchBack");
 
-        jRadioButton16.setText("FastBack");
+        buttonGroup_Carroceria.add(jRadioButton_AtrFastBack);
+        jRadioButton_AtrFastBack.setText("FastBack");
 
-        jRadioButton17.setText("SUV");
+        buttonGroup_Carroceria.add(jRadioButton_AtrSUV);
+        jRadioButton_AtrSUV.setText("SUV");
 
-        jRadioButton18.setText("Familiar");
+        buttonGroup_Carroceria.add(jRadioButton_AtrFamiliar);
+        jRadioButton_AtrFamiliar.setText("Familiar");
 
-        jRadioButton19.setText("Sedan");
+        buttonGroup_Carroceria.add(jRadioButtonAtr_Sedan);
+        jRadioButtonAtr_Sedan.setText("Sedan");
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel4.setText("Carroceria");
@@ -219,28 +255,37 @@ public class GUI extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel5.setText("Numero de Puertas:");
 
-        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(2, 2, 5, 1));
+        jSpinner_NumPuertas.setModel(new javax.swing.SpinnerNumberModel(2, 2, 5, 1));
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel6.setText("Color:");
 
-        jRadioButton12.setText("Blanco");
+        buttonGroup_Color.add(jRadioButton_AtrColorBlanco);
+        jRadioButton_AtrColorBlanco.setText("Blanco");
 
-        jRadioButton13.setText("Negro");
+        buttonGroup_Color.add(jRadioButton_AtrColorNegro);
+        jRadioButton_AtrColorNegro.setText("Negro");
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel7.setText("Tipo de Motor:");
 
-        jRadioButton14.setText("Combustion");
+        buttonGroup_Motor.add(jRadioButton_AtrMotorCombustion);
+        jRadioButton_AtrMotorCombustion.setText("Combustion");
 
-        jRadioButton20.setText("Electrico");
+        buttonGroup_Motor.add(jRadioButton_AtrMotorElectrico);
+        jRadioButton_AtrMotorElectrico.setText("Electrico");
 
-        jSpinner2.setModel(new javax.swing.SpinnerNumberModel(50000.0d, 20000.0d, 500000.0d, 10000.0d));
+        jSpinner_Precio.setModel(new javax.swing.SpinnerNumberModel(50000.0d, 20000.0d, 500000.0d, 10000.0d));
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel8.setText("Precio:");
 
-        jButton1.setText("Guardar");
+        jButton_GuardarVehiculo.setText("Guardar");
+        jButton_GuardarVehiculo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_GuardarVehiculoMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -267,55 +312,55 @@ public class GUI extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jRadioButton_AtrVolkswagen)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jRadioButton9))
+                            .addComponent(jRadioButton_AtrBentley))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
-                            .addComponent(jRadioButton2)
+                            .addComponent(jRadioButton_AtrSkoda)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jRadioButton5)
+                            .addComponent(jRadioButton_Porsche)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jRadioButton6)))
+                            .addComponent(jRadioButton_Lambo)))
                     .addGroup(jDialog1Layout.createSequentialGroup()
                         .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton11))
+                            .addComponent(jLabel_CategoriaTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton_AtrDeportivo))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton10)
-                            .addComponent(jRadioButton8)))
+                            .addComponent(jRadioButton_AtrPremium)
+                            .addComponent(jRadioButton_AtrGeneralista)))
                     .addGroup(jDialog1Layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton19)
+                        .addComponent(jRadioButtonAtr_Sedan)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton18))
+                        .addComponent(jRadioButton_AtrFamiliar))
                     .addGroup(jDialog1Layout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton20)
-                            .addComponent(jRadioButton14)))
+                            .addComponent(jRadioButton_AtrMotorElectrico)
+                            .addComponent(jRadioButton_AtrMotorCombustion)))
                     .addGroup(jDialog1Layout.createSequentialGroup()
                         .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton15)
+                            .addComponent(jRadioButton_AtrHatchback)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jDialog1Layout.createSequentialGroup()
-                                .addComponent(jRadioButton16)
+                                .addComponent(jRadioButton_AtrFastBack)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton17))
-                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton13)
-                            .addComponent(jRadioButton12)))
+                                .addComponent(jRadioButton_AtrSUV))
+                            .addComponent(jSpinner_NumPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton_AtrColorNegro)
+                            .addComponent(jRadioButton_AtrColorBlanco)))
                     .addGroup(jDialog1Layout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSpinner2, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)))
+                        .addComponent(jSpinner_Precio, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jDialog1Layout.createSequentialGroup()
                 .addGap(130, 130, 130)
-                .addComponent(jButton1)
+                .addComponent(jButton_GuardarVehiculo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jDialog1Layout.setVerticalGroup(
@@ -335,58 +380,58 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton_AtrAudi)
                     .addComponent(jRadioButton_AtrVolkswagen)
-                    .addComponent(jRadioButton9))
+                    .addComponent(jRadioButton_AtrBentley))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton5)
-                    .addComponent(jRadioButton6)
-                    .addComponent(jRadioButton2))
+                    .addComponent(jRadioButton_Porsche)
+                    .addComponent(jRadioButton_Lambo)
+                    .addComponent(jRadioButton_AtrSkoda))
                 .addGap(18, 18, 18)
                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jRadioButton8))
+                    .addComponent(jLabel_CategoriaTXT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jRadioButton_AtrGeneralista))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton10)
-                    .addComponent(jRadioButton11))
+                    .addComponent(jRadioButton_AtrPremium)
+                    .addComponent(jRadioButton_AtrDeportivo))
                 .addGap(18, 18, 18)
                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jRadioButton19)
-                    .addComponent(jRadioButton18))
+                    .addComponent(jRadioButtonAtr_Sedan)
+                    .addComponent(jRadioButton_AtrFamiliar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton15)
-                    .addComponent(jRadioButton16)
-                    .addComponent(jRadioButton17))
+                    .addComponent(jRadioButton_AtrHatchback)
+                    .addComponent(jRadioButton_AtrFastBack)
+                    .addComponent(jRadioButton_AtrSUV))
                 .addGap(18, 18, 18)
                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSpinner_NumPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDialog1Layout.createSequentialGroup()
                         .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
                         .addGap(26, 26, 26))
                     .addGroup(jDialog1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton12)
+                        .addComponent(jRadioButton_AtrColorBlanco)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton13)))
+                        .addComponent(jRadioButton_AtrColorNegro)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDialog1Layout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
                         .addGap(26, 26, 26))
                     .addGroup(jDialog1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton14)
+                        .addComponent(jRadioButton_AtrMotorCombustion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton20)))
+                        .addComponent(jRadioButton_AtrMotorElectrico)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSpinner_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
-                .addComponent(jButton1)
+                .addComponent(jButton_GuardarVehiculo)
                 .addContainerGap())
         );
 
@@ -645,6 +690,31 @@ public class GUI extends javax.swing.JFrame {
         catch(Exception e)
                {    
                }
+        DatabaseCon DB = new DatabaseCon("./Volkswagen.accdb");
+        DB.Connect();
+        try
+        {
+         DB.Query.execute("SELECT Vehiculos.VIN, Vehiculos.Marca, Vehiculos.Categoria, Vehiculos.Carroceria, Vehiculos.[Numero de Puertas], Vehiculos.Color, Vehiculos.[Tipo de Motor], Vehiculos.Precio, Vehiculos.[Tipo de Hibridacion], Vehiculos.[Cantidad Maxima de Pasajeros], Vehiculos.[Tiempo de ensamblaje] FROM Vehiculos");
+         ResultSet Result = DB.Query.getResultSet();
+         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+         model.setRowCount(0);
+         int i =0;
+         while (Result.next()) 
+         {
+         model.addRow(new Object[]{null,null,null,null,null});
+         jTable1.setValueAt(Result.getString(1),i,0);
+         jTable1.setValueAt(Result.getString(2),i,1);
+         jTable1.setValueAt(Result.getString(3),i,2);
+         jTable1.setValueAt(Result.getString(6),i,3);
+         jTable1.setValueAt(Result.getString(8),i,4);
+         i++;
+         } 
+        }
+        catch (SQLException ex) 
+                {
+                ex.printStackTrace();
+                }
+        DB.Disconnect();
     }//GEN-LAST:event_jMenuItem_EliminarVehiculoActionPerformed
 
     private void jMenuItem_BusquedaVINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_BusquedaVINActionPerformed
@@ -712,6 +782,158 @@ public class GUI extends javax.swing.JFrame {
         DB.Disconnect();
     }//GEN-LAST:event_jButton_EliminarFiltroMouseClicked
 
+    private void jMenuItem_AgregarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_AgregarVehiculoActionPerformed
+        // TODO add your handling code here:
+        jDialog1.pack();
+        jDialog1.setVisible(true);
+        jTextField_VIN.enable(false);
+        AgregandoVehiculo=true;
+    }//GEN-LAST:event_jMenuItem_AgregarVehiculoActionPerformed
+
+    private void jButton_GuardarVehiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_GuardarVehiculoMouseClicked
+        // TODO add your handling code here:
+        String VIN = jTextField_VIN.getText();
+        //Marca
+        String Marca="";
+        if(jRadioButton_ATRBugatti.isSelected())
+            Marca="Bugatti";
+        if(jRadioButton_AtrAudi.isSelected())
+            Marca="Audi";
+        if(jRadioButton_AtrSEAT.isSelected())
+            Marca="SEAT";
+        if(jRadioButton_AtrVolkswagen.isSelected())
+            Marca="Volkswagen";
+        if(jRadioButton_Lambo.isSelected())
+            Marca="Lamborghini";
+        if(jRadioButton_Porsche.isSelected())
+            Marca="Porsche";
+        if(jRadioButton_AtrSkoda.isSelected())
+            Marca="Skoda";
+        if(jRadioButton_AtrBentley.isSelected())
+            Marca="Bentley";
+        //Categoria
+        String Categoria="";
+        if(jRadioButton_AtrDeportivo.isSelected())
+            Categoria="Deportivo";
+        if(jRadioButton_AtrGeneralista.isSelected())
+            Categoria="Generalista";
+        if(jRadioButton_AtrPremium.isSelected())
+            Categoria="Premium";
+        //Carroceria
+        String Carroceria ="";
+        if(jRadioButton_AtrFamiliar.isSelected())
+            Carroceria="Familiar";
+        if(jRadioButton_AtrFastBack.isSelected())
+            Carroceria="FastBack";
+        if(jRadioButton_AtrHatchback.isSelected())
+            Carroceria="HatchBack";
+        if(jRadioButton_AtrSUV.isSelected())
+            Carroceria="SUV";
+        if(jRadioButtonAtr_Sedan.isSelected())
+            Carroceria="Sedan";
+        //NumPuertas
+        int NumPuertas = (Integer) jSpinner_NumPuertas.getValue();
+        //Color
+        String Color="";
+        if(jRadioButton_AtrColorBlanco.isSelected())
+            Color = "Blanco";
+        if(jRadioButton_AtrColorNegro.isSelected())
+            Color = "Negro";
+        //Motor
+        String Motor="";
+        if(jRadioButton_AtrMotorElectrico.isSelected())
+            Motor="Electrico";
+        if(jRadioButton_AtrMotorCombustion.isSelected())
+            Motor="Combustion";
+        //Precio
+        double Precio = (Double) jSpinner_Precio.getValue();
+        
+        
+        
+        if(AgregandoVehiculo)
+        {
+        DatabaseCon DB = new DatabaseCon("./Volkswagen.accdb");
+        DB.Connect();
+        try
+        {
+         DB.Query.execute("INSERT INTO Vehiculos(Vehiculos.VIN, Vehiculos.Marca, Vehiculos.Categoria, Vehiculos.Carroceria, Vehiculos.[Numero de Puertas], Vehiculos.Color, Vehiculos.[Tipo de Motor], Vehiculos.Precio, Vehiculos.[Tipo de Hibridacion], Vehiculos.[Cantidad Maxima de Pasajeros], Vehiculos.[Tiempo de ensamblaje])"
+                 +"VALUES(\""+VIN+"\", "+"\""+Marca+"\", "+"\""+Categoria+"\", "+"\""+Carroceria+"\", "+"\""+NumPuertas+"\", "+"\""+Color+"\", "+"\""+Motor+"\", "+"\""+Precio+"\", "+"\""+""+"\", "+"\""+5+"\", "+"\""+500+"\" )");
+         DB.Commit();
+        }
+        catch (SQLException ex) 
+                {
+                ex.printStackTrace();
+                }
+        DB.Disconnect(); 
+        AgregandoVehiculo=false;
+        }
+        
+        if(ModificandoVehiculo)
+        {
+           DatabaseCon DB = new DatabaseCon("./Volkswagen.accdb");
+        DB.Connect();
+        try
+        {
+         DB.Query.execute("UPDATE Vehiculos "
+                 +"SET Marca=\""+Marca+"\", "
+                 +"Categoria=\""+Categoria+"\", "
+                 +"Carroceria=\""+Carroceria+"\", "
+                 +"[Numero de Puertas]=\""+NumPuertas+"\", "
+                 +"Color=\""+Color+"\", "
+                 +"[Tipo de Motor]=\""+Motor+"\", "
+                 +"Precio=\""+Precio+"\" "
+                 +"WHERE VIN=\""+VIN+"\""
+                        );
+         DB.Commit();
+        }
+        catch (SQLException ex) 
+                {
+                ex.printStackTrace();
+                }
+        DB.Disconnect(); 
+        AgregandoVehiculo=false;
+        }
+        
+        
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        DatabaseCon DB2 = new DatabaseCon("./Volkswagen.accdb");
+        DB2.Connect();
+        try
+        {
+         DB2.Query.execute("SELECT Vehiculos.VIN, Vehiculos.Marca, Vehiculos.Categoria, Vehiculos.Carroceria, Vehiculos.[Numero de Puertas], Vehiculos.Color, Vehiculos.[Tipo de Motor], Vehiculos.Precio, Vehiculos.[Tipo de Hibridacion], Vehiculos.[Cantidad Maxima de Pasajeros], Vehiculos.[Tiempo de ensamblaje] FROM Vehiculos ");
+         ResultSet Result = DB2.Query.getResultSet();
+         
+         int i =0;
+         while (Result.next()) 
+         {
+         model.addRow(new Object[]{null,null,null,null,null});
+         jTable1.setValueAt(Result.getString(1),i,0);
+         jTable1.setValueAt(Result.getString(2),i,1);
+         jTable1.setValueAt(Result.getString(3),i,2);
+         jTable1.setValueAt(Result.getString(6),i,3);
+         jTable1.setValueAt(Result.getString(8),i,4);
+         i++;
+         } 
+         
+        }
+        catch (SQLException ex) 
+                {
+                ex.printStackTrace();
+                }
+        DB2.Disconnect();
+        jDialog1.setVisible(false);
+    }//GEN-LAST:event_jButton_GuardarVehiculoMouseClicked
+
+    private void jMenuItem_ModificarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_ModificarVehiculoActionPerformed
+        // TODO add your handling code here:
+        jDialog1.pack();
+        jDialog1.setVisible(true);
+        jTextField_VIN.enable(false);
+        jTextField_VIN.setText(String.valueOf(jTable1.getValueAt(jTable1.getSelectedRow(), 0)));
+        ModificandoVehiculo=true;
+    }//GEN-LAST:event_jMenuItem_ModificarVehiculoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -749,18 +971,23 @@ public class GUI extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup_Carroceria;
+    private javax.swing.ButtonGroup buttonGroup_Categoria;
+    private javax.swing.ButtonGroup buttonGroup_Color;
     private javax.swing.ButtonGroup buttonGroup_Filtro;
-    private javax.swing.JButton jButton1;
+    private javax.swing.ButtonGroup buttonGroup_Marca;
+    private javax.swing.ButtonGroup buttonGroup_Motor;
     private javax.swing.JButton jButton_AplicarFiltro;
     private javax.swing.JButton jButton_EliminarFiltro;
+    private javax.swing.JButton jButton_GuardarVehiculo;
     private javax.swing.JDialog jDialog1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel_Atributos;
+    private javax.swing.JLabel jLabel_CategoriaTXT;
     private javax.swing.JLabel jLabel_FiltroSeleccionado;
     private javax.swing.JLabel jLabel_FiltroSeleccionadoTXT;
     private javax.swing.JLabel jLabel_MarcaTXT;
@@ -781,22 +1008,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPopupMenu jPopupMenu_ContextMenu;
-    private javax.swing.JRadioButton jRadioButton10;
-    private javax.swing.JRadioButton jRadioButton11;
-    private javax.swing.JRadioButton jRadioButton12;
-    private javax.swing.JRadioButton jRadioButton13;
-    private javax.swing.JRadioButton jRadioButton14;
-    private javax.swing.JRadioButton jRadioButton15;
-    private javax.swing.JRadioButton jRadioButton16;
-    private javax.swing.JRadioButton jRadioButton17;
-    private javax.swing.JRadioButton jRadioButton18;
-    private javax.swing.JRadioButton jRadioButton19;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton20;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton8;
-    private javax.swing.JRadioButton jRadioButton9;
+    private javax.swing.JRadioButton jRadioButtonAtr_Sedan;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Audi;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Bentley;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Bugatti;
@@ -815,11 +1027,26 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Volkswagen;
     private javax.swing.JRadioButton jRadioButton_ATRBugatti;
     private javax.swing.JRadioButton jRadioButton_AtrAudi;
+    private javax.swing.JRadioButton jRadioButton_AtrBentley;
+    private javax.swing.JRadioButton jRadioButton_AtrColorBlanco;
+    private javax.swing.JRadioButton jRadioButton_AtrColorNegro;
+    private javax.swing.JRadioButton jRadioButton_AtrDeportivo;
+    private javax.swing.JRadioButton jRadioButton_AtrFamiliar;
+    private javax.swing.JRadioButton jRadioButton_AtrFastBack;
+    private javax.swing.JRadioButton jRadioButton_AtrGeneralista;
+    private javax.swing.JRadioButton jRadioButton_AtrHatchback;
+    private javax.swing.JRadioButton jRadioButton_AtrMotorCombustion;
+    private javax.swing.JRadioButton jRadioButton_AtrMotorElectrico;
+    private javax.swing.JRadioButton jRadioButton_AtrPremium;
     private javax.swing.JRadioButton jRadioButton_AtrSEAT;
+    private javax.swing.JRadioButton jRadioButton_AtrSUV;
+    private javax.swing.JRadioButton jRadioButton_AtrSkoda;
     private javax.swing.JRadioButton jRadioButton_AtrVolkswagen;
+    private javax.swing.JRadioButton jRadioButton_Lambo;
+    private javax.swing.JRadioButton jRadioButton_Porsche;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
+    private javax.swing.JSpinner jSpinner_NumPuertas;
+    private javax.swing.JSpinner jSpinner_Precio;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField_VIN;
     // End of variables declaration//GEN-END:variables
