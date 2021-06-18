@@ -6,13 +6,9 @@
 package lab8p2_rafaelajuria;
 
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -32,21 +28,22 @@ public class GUI extends javax.swing.JFrame {
         try
         {
          DB.Query.execute("SELECT Vehiculos.VIN, Vehiculos.Marca, Vehiculos.Categoria, Vehiculos.Carroceria, Vehiculos.[Numero de Puertas], Vehiculos.Color, Vehiculos.[Tipo de Motor], Vehiculos.Precio, Vehiculos.[Tipo de Hibridacion], Vehiculos.[Cantidad Maxima de Pasajeros], Vehiculos.[Tiempo de ensamblaje] FROM Vehiculos");
-         ResultSet Result = DB.Query.getResultSet();           
+         ResultSet Result = DB.Query.getResultSet();
+         int i =0;
          while (Result.next()) 
          {
-         System.out.println( Result.getString(1)+"--->"+ Result.getString(2)   );
-         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-         model.addRow((Vector) Result);
+         jTable1.setValueAt(Result.getString(1),i,0);
+         jTable1.setValueAt(Result.getString(2),i,1);
+         jTable1.setValueAt(Result.getString(3),i,2);
+         jTable1.setValueAt(Result.getString(6),i,3);
+         jTable1.setValueAt(Result.getString(8),i,4);
+         i++;
          } 
         }
         catch (SQLException ex) 
                 {
                 ex.printStackTrace();
                 }
-
-        
-        
         //</editor-fold>
         }
 
@@ -60,6 +57,10 @@ public class GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup_Filtro = new javax.swing.ButtonGroup();
+        jPopupMenu_ContextMenu = new javax.swing.JPopupMenu();
+        jMenuItem_AgregarVehiculo = new javax.swing.JMenuItem();
+        jMenuItem_ModificarVehiculo = new javax.swing.JMenuItem();
+        jMenuItem_EliminarVehiculo = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jLabel_Titulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -92,6 +93,20 @@ public class GUI extends javax.swing.JFrame {
         jMenu_TipoDeMotor = new javax.swing.JMenu();
         jMenu_BusquedaManual = new javax.swing.JMenu();
         jMenuItem_BusquedaVIN = new javax.swing.JMenuItem();
+
+        jMenuItem_AgregarVehiculo.setText("Agregar");
+        jPopupMenu_ContextMenu.add(jMenuItem_AgregarVehiculo);
+
+        jMenuItem_ModificarVehiculo.setText("jMenuItem2");
+        jPopupMenu_ContextMenu.add(jMenuItem_ModificarVehiculo);
+
+        jMenuItem_EliminarVehiculo.setText("Eliminar");
+        jMenuItem_EliminarVehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_EliminarVehiculoActionPerformed(evt);
+            }
+        });
+        jPopupMenu_ContextMenu.add(jMenuItem_EliminarVehiculo);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -145,6 +160,11 @@ public class GUI extends javax.swing.JFrame {
                 "VIN", "Marca", "Categoria", "Color", "Precio"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jLabel_FiltroSeleccionadoTXT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -286,6 +306,43 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        if(evt.isMetaDown())
+        {
+           try
+            {
+            jPopupMenu_ContextMenu.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
+            catch(Exception e)
+                   {    
+                   }
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jMenuItem_EliminarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_EliminarVehiculoActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+        String VIN =String.valueOf(jTable1.getValueAt(jTable1.getSelectedRow(), 0));
+        DatabaseCon DB = new DatabaseCon("./Volkswagen.accdb");
+        DB.Connect();
+        try
+        {
+         DB.Query.execute("DELETE FROM Vehiculos WHERE VIN=\""+VIN+"\"");
+         DB.Commit();
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+        DB.Disconnect();
+        }
+        catch(Exception e)
+               {    
+               }
+    }//GEN-LAST:event_jMenuItem_EliminarVehiculoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -329,7 +386,10 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_FiltroSeleccionadoTXT;
     private javax.swing.JLabel jLabel_Titulo;
     private javax.swing.JMenuBar jMenuBar_MenuPrincipal;
+    private javax.swing.JMenuItem jMenuItem_AgregarVehiculo;
     private javax.swing.JMenuItem jMenuItem_BusquedaVIN;
+    private javax.swing.JMenuItem jMenuItem_EliminarVehiculo;
+    private javax.swing.JMenuItem jMenuItem_ModificarVehiculo;
     private javax.swing.JMenu jMenu_BusquedaManual;
     private javax.swing.JMenu jMenu_Carroceria;
     private javax.swing.JMenu jMenu_Categoria;
@@ -338,6 +398,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu_MenuFiltros;
     private javax.swing.JMenu jMenu_TipoDeMotor;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu jPopupMenu_ContextMenu;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Audi;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Bentley;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem_Bugatti;
